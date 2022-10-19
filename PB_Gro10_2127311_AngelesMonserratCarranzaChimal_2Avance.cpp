@@ -18,76 +18,77 @@ struct empresa
 int main()
 {
     empresa videojuego[3];
-    int opcion,opcion2,opcion3,busqueda;
+    int opcion, opcion2, opcion3, opcion4, busqueda;
     float imp = 0.16;
 
     do
     {
         printf("\t ***GAMING STORE*** \n");
-        printf("1.-Agregar Articulo \n 2.-Modificar Articulo\n 3.-Eliminar Articulo\n 4.-Lista de Articulos\n 5.-Limpiar Pantalla\n 6.-Salir\n");
+        printf("1.-Agregar Articulo\n 2.-Modificar Articulo\n 3.-Eliminar Articulo\n 4.-Lista de Articulos\n 5.-Limpiar Pantalla\n 6.-Salir\n");
         scanf_s("%d", &opcion);
 
         //Incio del switch (Menú de Opciones)
         switch (opcion)
         {
         case 1: //Agregar Artículo
-            
+
             system("cls");
-            
+
             for (int i = 0; i < 3; i++)
             {
+                system("cls");
                 do
                 {
-                    printf("Ingrese el número del artículo \n"); //Número del artículo
+                    printf("Ingrese el numero del articulo \n"); //Número del artículo
                     scanf_s("%d", &videojuego[i].numart);
                     if (videojuego[i].numart == videojuego[i - 1].numart)
                     {
-                        printf("Número repetido \n");
+                        printf("Numero repetido \n");
                     }
                 } while (videojuego[i].numart == videojuego[i - 1].numart);
-                
-                printf("Ingrese el nombre del artículo \n"); //Nombre
+
+                printf("Ingrese el nombre del articulo \n"); //Nombre
                 cin.ignore();
                 getline(cin, videojuego[i].nombre);
 
-                printf("Ingrese año de lanzamiento \n"); //Año
+                printf("Ingrese la fecha de lanzamiento \n"); //Año
                 scanf_s("%d", &videojuego[i].fecha);
 
-                printf("Ingrese la clasificación del artículo \n"); //Clasificación
+                printf("Ingrese la clasificacion del articulo \n"); //Clasificación
                 cin.ignore();
                 getline(cin, videojuego[i].clas);
 
-                printf("Ingrese las características del artículo \n"); //Características
+                printf("Ingrese las caracteristicas del articulo \n"); //Características
                 cin.ignore();
                 getline(cin, videojuego[i].carac);
 
-                printf("Ingrese la descripción del artículo \n"); //Descripción
+                printf("Ingrese la descripcion del articulo \n"); //Descripción
                 cin.ignore();
                 getline(cin, videojuego[i].des);
 
-                printf("Ingrese el género del artículo \n"); //Género
+                printf("Ingrese el genero del articulo \n"); //Género
                 cin.ignore();
                 getline(cin, videojuego[i].gen);
 
-                printf("Ingrese el precio unitario del Artículo \n"); //Precio Unitario
+                printf("Ingrese el precio unitario del articulo \n"); //Precio Unitario
                 scanf_s("%f", &videojuego[i].precio);
                 videojuego[i].total = videojuego[i].precio + (videojuego[i].precio * imp);
 
-                printf("Precio Total:%f", videojuego[i].total); //Precio Total
+                printf("Precio Total:%f \n", videojuego[i].total); //Precio Total
 
                 system("pause");
                 system("cls");
             }
-            break;            
+            break;
 
         case 2: //Modificar Artículo
 
             system("cls");
 
-            printf("Ingrese el número de artículo \n");
+            printf("Ingrese el numero de articulo \n");
             scanf_s("%d", &busqueda);
 
-            printf("Ingrese la opción deseada a modificar:\n 1.-Nombre \n 2.-Año \n 3.-Clasificacíón \n 4.-Descripción \n 5.-Género \n 6.-Precio Unitario \n 7.-Salir \n");
+            printf("Ingrese la opcion deseada a modificar:\n 1.-Nombre\n 2.-Fecha\n 3.-Clasificacíon\n 4.-Descripcion\n 5.-Genero\n 6.-Precio Unitario\n 7.-Salir\n");
             scanf_s("%d", &opcion2);
             system("cls");
 
@@ -111,19 +112,19 @@ int main()
                 {
                     if (busqueda == videojuego[i].numart)
                     {
-                        printf("Modifique el año \n");
+                        printf("Modifique la fecha \n");
                         scanf_s("%d", &videojuego[i].fecha);
                     }
                 }
                 system("pause");
                 break;
-            
+
             case 3: //Clasificación
                 for (int i = 0; i < 3; i++)
                 {
                     if (busqueda == videojuego[i].numart)
                     {
-                        printf("Modifique la clasificación \n");
+                        printf("Modifique la clasificacion \n");
                         cin.ignore();
                         getline(cin, videojuego[i].clas);
                     }
@@ -136,7 +137,7 @@ int main()
                 {
                     if (busqueda == videojuego[i].numart)
                     {
-                        printf("Modifique la descripción \n");
+                        printf("Modifique la descripcion \n");
                         cin.ignore();
                         getline(cin, videojuego[i].des);
                     }
@@ -149,7 +150,7 @@ int main()
                 {
                     if (busqueda == videojuego[i].numart)
                     {
-                        printf("Modifique el género \n");
+                        printf("Modifique el genero \n");
                         cin.ignore();
                         getline(cin, videojuego[i].gen);
                     }
@@ -175,7 +176,7 @@ int main()
             case 7:
                 printf("Saliendo...\n");
                 break;
-            
+
             default:
                 printf("Intente de nuevo...\n");
                 break;
@@ -189,7 +190,7 @@ int main()
             {
                 system("cls");
 
-                printf("Ingrese el número del artículo \n");
+                printf("Ingrese el numero del artículo \n");
                 scanf_s("%d", &busqueda);
 
                 for (int i = 0; i < 3; i++)
@@ -201,32 +202,72 @@ int main()
                         system("pause");
                     }
                 }
+                system("cls");
                 printf("Desea eliminar otro registro \n 1.- Sí \n 2.- No \n");
                 scanf_s("%d", &opcion3);
             } while (opcion3 == 1);
-            
+
             system("cls");
             break;
 
         case 4: //Lista de Artículos
-
-            system("cls");
-
-            for (int i = 0; i < 3; i++)
+            do
             {
-                if (videojuego[i].numart != 0)
+                system("cls");
+                printf("Ingrese la opcion deseada de busqueda \n 1.-Por numero de articulo \n 2.-Listas Vigentes \n 3.- Salir \n");
+                scanf_s("%d", &opcion4);
+                system("cls");
+                switch (opcion4)
                 {
-                    printf("Número de artículo: %d \n", videojuego[i].numart);
-                    printf("Nombre: %s \n", videojuego[i].nombre.c_str());
-                    printf("Nombre: %d \n", videojuego[i].fecha);
-                    printf("Clasificación: %s \n", videojuego[i].clas.c_str());
-                    printf("Características: %s \n", videojuego[i].carac.c_str());
-                    printf("Descripción: %s \n", videojuego[i].des.c_str());
-                    printf("Género: %s \n", videojuego[i].gen.c_str());
-                    printf("Precio Unitario: %f \n", videojuego[i].precio);
-                    printf("Total: %f \n", videojuego[i].total);
+                case 1: //Por numero de artículo
+                    printf("Ingrese el numero de articulo \n");
+                    scanf_s("%d", &busqueda);
+                    for (int i = 0; i < 3; i++)
+                    {
+                        if (busqueda == videojuego[i].numart)
+                        {
+                            printf("Numero de articulo: %d \n", videojuego[i].numart);
+                            printf("Nombre: %s \n", videojuego[i].nombre.c_str());
+                            printf("Fecha: %d \n", videojuego[i].fecha);
+                            printf("Clasificacion: %s \n", videojuego[i].clas.c_str());
+                            printf("Caracteristicas: %s \n", videojuego[i].carac.c_str());
+                            printf("Descripcion: %s \n", videojuego[i].des.c_str());
+                            printf("Genero: %s \n", videojuego[i].gen.c_str());
+                            printf("Precio Unitario: %f \n", videojuego[i].precio);
+                            printf("Total: %f \n", videojuego[i].total);
+                        }
+                    }
+                    system("pause");
+                    break;
+
+                case 2:
+                    for (int i = 0; i < 3; i++)
+                    {
+                        if (videojuego[i].numart != 0)
+                        {
+                            printf("Numero de articulo: %d \n", videojuego[i].numart);
+                            printf("Nombre: %s \n", videojuego[i].nombre.c_str());
+                            printf("Fecha: %d \n", videojuego[i].fecha);
+                            printf("Clasificacion: %s \n", videojuego[i].clas.c_str());
+                            printf("Caracteristicas: %s \n", videojuego[i].carac.c_str());
+                            printf("Descripcion: %s \n", videojuego[i].des.c_str());
+                            printf("Genero: %s \n", videojuego[i].gen.c_str());
+                            printf("Precio Unitario: %f \n", videojuego[i].precio);
+                            printf("Total: %f \n", videojuego[i].total);
+                        }
+                    }
+
+                case 3:
+                    printf("Saliendo... \n");
+                    system("pause");
+                    break;
+
+                default:
+                    printf("La opcion es incorrecta \n");
+                    system("pause");
+                    break;
                 }
-            }
+            } while (opcion4 != 3);
             system("cls");
             break;
 
@@ -242,7 +283,6 @@ int main()
         default:
             cout << "Ingrese una opcion correcta \n";
         }
-    }
-    while (opcion != 5);
+    } while (opcion != 6);
     system("pause");
 }
